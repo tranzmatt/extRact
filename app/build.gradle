@@ -17,7 +17,8 @@ android {
         targetSdkVersion 33
         versionCode 200 // last digit is reserved for ABI, only ever end on 0!
         versionName '2.1.0'
-        resConfigs "en", "de" // restrict to used languages
+        resConfigs 'en', 'de'
+// restrict to used languages
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "java.lang.String", "CLI", System.getenv('RCX_BUILD_CLI') ? System.getenv('RCX_BUILD_CLI') : "\"c03129b6-b09f-9cb4-8fcd-7f143b8f94ef\""
         buildConfigField "java.lang.String", "VCP_AUTHORITY", "\"" + applicationId + ".vcp\"";
@@ -85,6 +86,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    namespace 'ca.pkay.rcloneexplorer'
 }
 
 def now() {
