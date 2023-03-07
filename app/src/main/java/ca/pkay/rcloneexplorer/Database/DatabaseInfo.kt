@@ -25,6 +25,7 @@ class DatabaseInfo {
                 Trigger.COLUMN_NAME_ID + " INTEGER PRIMARY KEY," +
                 Trigger.COLUMN_NAME_TITLE + " TEXT," +
                 Trigger.COLUMN_NAME_ENABLED + " INTEGER," +
+                Trigger.COLUMN_NAME_AUTOMATIC + " INTEGER," +
                 Trigger.COLUMN_NAME_TIME + " INTEGER," +
                 Trigger.COLUMN_NAME_WEEKDAY + " INTEGER," +
                 Trigger.COLUMN_NAME_TARGET + " INTEGER)"

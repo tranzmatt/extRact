@@ -43,6 +43,7 @@ public class Exporter {
             triggerObject.put("title", trigger.getTitle());
             triggerObject.put("weekdays", trigger.getWeekdays());
             triggerObject.put("target", trigger.getWhatToTrigger());
+            triggerObject.put("automatic", trigger.isAutomatic());
             triggerObject.put("enabled", trigger.isEnabled());
             triggers.put(triggerObject);
         }

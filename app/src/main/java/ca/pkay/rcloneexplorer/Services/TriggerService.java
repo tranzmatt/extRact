@@ -28,13 +28,13 @@ public class TriggerService extends Service {
     private DatabaseHandler dbHandler;
     private Context context;
 
-    public static String TRIGGER_RECIEVE = "TRIGGER_RECIEVE";
+    public static String TRIGGER_RECEIVE = "TRIGGER_RECEIVE";
     public static String TRIGGER_ID = "TRIGGER_ID";
 
     public static String CHANNEL_ID = "CHANNEL_ID";
     public static int SERVICE_NOTIFICATION_ID = 42;
 
-    //Required for Servicecall
+    //Required for Service Call
     public TriggerService() {}
 
     public TriggerService(Context c) {
@@ -63,7 +63,7 @@ public class TriggerService extends Service {
                 difference = (24*60*60*1000) + difference;
             }
 
-            // If a triggered event schedules the next occurence, we need to make sure that it does not create an endless loop for 60 seconds.
+            // If a triggered event schedules the next occurrence, we need to make sure that it does not create an endless loop for 60 seconds.
             // If it is "now", do it in 24h
             if(Calendar.getInstance().get(Calendar.MINUTE) == seconds%60){
                 difference = (24*60*60*1000);
@@ -90,7 +90,6 @@ public class TriggerService extends Service {
                         pi
                 );
             }
-            return;
         }
     }
 
@@ -101,7 +100,7 @@ public class TriggerService extends Service {
 
     private void startTask(Trigger trigger){
         boolean skipBecauseOfWeekday;
-        //account for monday beeing 1 and sunday beeing 0. Therefor we need to offset by 2
+        //account for monday being 1 and sunday being 0. Therefor we need to offset by 2
         int day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-2;
 
         //check for sundays. Calendar starts with sunday.
@@ -121,11 +120,11 @@ public class TriggerService extends Service {
 
     private PendingIntent getIntent(long triggerId){
         Intent i = new Intent(context, TriggerReciever.class);
-        i.setAction(TRIGGER_RECIEVE);
+        i.setAction(TRIGGER_RECEIVE);
         i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         i.putExtra(TRIGGER_ID, triggerId);
 
-        // Todo: Beacause of the long to int cast, this may fail when the user has more than Integer.MAX tasks.
+        // Todo: Because of the long to int cast, this may fail when the user has more than Integer.MAX tasks.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             return PendingIntent.getBroadcast(context, (int) triggerId, i, PendingIntent.FLAG_UPDATE_CURRENT ^ PendingIntent.FLAG_IMMUTABLE);
         } else {

@@ -10,12 +10,14 @@ public class Trigger {
     public static String COLUMN_NAME_TIME = "trigger_time";
     public static String COLUMN_NAME_WEEKDAY = "trigger_weekday";
     public static String COLUMN_NAME_ENABLED = "trigger_enabled";
+    public static String COLUMN_NAME_AUTOMATIC = "trigger_automatic";
     public static String COLUMN_NAME_TARGET = "trigger_target";
 
     private Long id;
 
     private String title="";
     private boolean isEnabled=true;
+    private boolean isAutomatic=true;
     private byte weekdays = 0b01111111;      //treat as binary, so that each digit represents an boolean.
     private int time = 0;                   //in seconds since 00:00
     private Long whatToTrigger = 0L;
@@ -40,12 +42,16 @@ public class Trigger {
         this.title = title;
     }
 
-    public boolean isEnabled() {
-        return isEnabled;
+    public boolean isEnabled() { return isEnabled; }
+
+    public boolean isAutomatic() {
+        return isAutomatic;
     }
 
-    public void setEnabled(boolean enabled) {
-        isEnabled = enabled;
+    public void setEnabled(boolean enabled) { isEnabled = enabled; }
+
+    public void setAutomatic(boolean automatic) {
+        isAutomatic = automatic;
     }
 
     /**

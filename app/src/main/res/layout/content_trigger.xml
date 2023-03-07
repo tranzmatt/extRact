@@ -27,6 +27,7 @@
                 style="@style/SecondaryCardStyle"
                 app:cardCornerRadius="@dimen/cardCornerRadius"
                 app:contentPadding="@dimen/cardPadding">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -48,15 +49,56 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
                         android:hint="@string/trigger_name" />
+
+                    <CheckBox
+                        android:id="@+id/cb_is_automatic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:checked="true"
+                        android:text="Is this trigger automatic?" />
+
                     <CheckBox
                         android:id="@+id/cb_is_enabled"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:checked="true"
-                        android:text="Is this trigger enabled?" />
+                        android:text="Is this trigger scheduled?" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                style="@style/SecondaryCardStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="@dimen/cardCornerRadius"
+                app:contentPadding="@dimen/cardPadding">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/task_to_run"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textSize="24sp" />
+
+                    <Spinner
+                        android:id="@+id/trigger_targets"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -163,34 +205,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                style="@style/SecondaryCardStyle"
-                app:cardCornerRadius="@dimen/cardCornerRadius"
-                app:contentPadding="@dimen/cardPadding">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:text="@string/task_to_run"
-                        android:layout_margin="8dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                        android:textSize="24sp" />
-
-                    <Spinner
-                        android:id="@+id/trigger_targets"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
         </LinearLayout>
 
     </ScrollView>

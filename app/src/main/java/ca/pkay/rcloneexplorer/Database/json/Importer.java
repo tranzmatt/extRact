@@ -35,6 +35,7 @@ public class Importer {
             Trigger trigger = new Trigger(triggerObject.getLong("id"));
             trigger.setTitle(triggerObject.getString("title"));
             trigger.setTime(triggerObject.getInt("time"));
+            trigger.setAutomatic(triggerObject.getBoolean("automatic"));
             trigger.setEnabled(triggerObject.getBoolean("enabled"));
             trigger.setWeekdays((byte) triggerObject.getInt("weekdays"));
             trigger.setWhatToTrigger(triggerObject.getLong("target"));

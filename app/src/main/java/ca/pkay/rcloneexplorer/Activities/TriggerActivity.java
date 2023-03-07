@@ -99,7 +99,7 @@ public class TriggerActivity extends AppCompatActivity {
 
         if(existingTrigger!=null){
             ((TextView)findViewById(R.id.trigger_name_edit)).setText(existingTrigger.getTitle());
-
+            ((CheckBox)findViewById(R.id.cb_is_automatic)).setChecked(existingTrigger.isAutomatic());
             ((CheckBox)findViewById(R.id.cb_is_enabled)).setChecked(existingTrigger.isEnabled());
 
             ((CheckBox)findViewById(R.id.trigger_cb_monday)).setChecked(existingTrigger.isEnabledAtDay(0));
@@ -160,6 +160,7 @@ public class TriggerActivity extends AppCompatActivity {
         Trigger triggerToPopulate = new Trigger(id);
         triggerToPopulate.setTitle(((EditText)findViewById(R.id.trigger_name_edit)).getText().toString());
 
+        triggerToPopulate.setAutomatic(((CheckBox)findViewById(R.id.cb_is_automatic)).isChecked());
         triggerToPopulate.setEnabled(((CheckBox)findViewById(R.id.cb_is_enabled)).isChecked());
 
         triggerToPopulate.setEnabledAtDay(0, ((CheckBox)findViewById(R.id.trigger_cb_monday)).isChecked());

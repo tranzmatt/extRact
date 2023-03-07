@@ -17,14 +17,14 @@ public class TriggerReciever extends BroadcastReceiver {
         FLog.e(TAG, "Recieved Intent");
 
         assert intent != null;
-        if(intent.getAction().equals(TriggerService.TRIGGER_RECIEVE)){
+        if(intent.getAction().equals(TriggerService.TRIGGER_RECEIVE)){
             long i = intent.getLongExtra(TriggerService.TRIGGER_ID, -1);
             FLog.e(TAG, "Start Trigger: "+i);
             if(i==-1)
                 return;
 
             Intent service = new Intent(context, TriggerService.class);
-            service.setAction(TriggerService.TRIGGER_RECIEVE);
+            service.setAction(TriggerService.TRIGGER_RECEIVE);
             service.putExtra(TriggerService.TRIGGER_ID, i);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 context.startForegroundService(service);

@@ -672,7 +672,7 @@
     <string name="shortcut_start_service">Started Sync!</string>
     <string name="task_copy_suffix">(Copy)</string>
     <string name="trigger_copy_suffix">(Copy)</string>
-    <string name="trigger_label_weekdays">Weekdays</string>
+    <string name="trigger_label_weekdays">Day of Week</string>
     <string name="sync_service_notification_channel_title">Sync service</string>
     <string name="sync_service_notification_channel_success_title">Sync service success</string>
     <string name="sync_service_notification_channel_fail_title">Sync service fail</string>
